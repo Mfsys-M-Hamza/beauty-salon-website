@@ -1,26 +1,339 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  BRAND TOKENS: change colours here to re-theme the whole site.
+  Text colours were chosen to pass WCAG AA on the ivory / cream backgrounds.
+*/
+@theme {
+  --color-ivory: #fbf7f2;
+  --color-cream: #f4ece3;
+  --color-blush: #f3dfdb;
+  --color-ink: #2b2428;
+  --color-ink-soft: #5d5359;
+  --color-rose: #8f4759;
+  --color-rose-dark: #6e3445;
+  --color-gold: #8e6a2c;
+  --color-gold-light: #dcbb84;
+  --color-line: #e6dcd0;
+  --color-whatsapp: #0b7a4b;
+  --color-whatsapp-dark: #085f3a;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), Georgia, serif;
+
+  --shadow-soft: 0 10px 40px -12px rgb(43 36 40 / 0.18);
+  --shadow-lift: 0 22px 50px -16px rgb(43 36 40 / 0.28);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  line-height: 1.12;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus, var(--color-rose));
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.dark-surface {
+  --focus: var(--color-blush);
+}
+
+::selection {
+  background: var(--color-blush);
+  color: var(--color-ink);
+}
+
+/* ---------- Entrance animations (run on load, no JS needed) ---------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+
+/* ---------- Scroll reveal (only hidden when JS can reveal it again) ---------- */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transition:
+      opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s),
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s);
+  }
+  .reveal-up {
+    transform: translateY(28px);
+  }
+  .reveal-left {
+    transform: translateX(-32px);
+  }
+  .reveal-right {
+    transform: translateX(32px);
+  }
+  .reveal-scale {
+    transform: scale(0.96);
+  }
+  /* The clip sits on the child so the observed wrapper is never fully clipped. */
+  .reveal-image {
+    opacity: 1;
+  }
+  .reveal-image > * {
+    clip-path: inset(0 0 100% 0 round 1.5rem);
+    transition: clip-path 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-image.is-visible > * {
+    clip-path: inset(0 0 0 0 round 1.5rem);
+  }
+}
+
+/* ---------- Ambient motion (skipped on low-power devices) ---------- */
+@keyframes kenburns {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(-1.2%, -1%, 0);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(3%, -4%, 0) scale(1.06);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes sweep {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.animate-drift {
+  animation: drift 20s ease-in-out infinite;
+}
+
+.marquee-track {
+  animation: marquee 60s linear infinite;
+  width: max-content;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+.cta-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.14), transparent);
+  animation: sweep 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.pin-ring {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+.draw-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: draw 0.7s 0.25s ease-out forwards;
+}
+
+.pop-in {
+  animation: pop 0.6s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+
+/* Low-power devices and data-saver: keep the design, drop the constant motion. */
+html[data-lowpower] .animate-kenburns,
+html[data-lowpower] .animate-drift,
+html[data-lowpower] .marquee-track,
+html[data-lowpower] .cta-sweep::after {
+  animation: none;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+  .animate-kenburns,
+  .animate-drift,
+  .cta-sweep::after,
+  .pin-ring {
+    animation: none !important;
+  }
+  .marquee {
+    overflow-x: auto;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+  .marquee-dup {
+    display: none;
+  }
+  .draw-check {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Slider handle uses a native range for full keyboard support. */
+.ba-range {
+  appearance: none;
+  background: transparent;
+  cursor: ew-resize;
+}
+.ba-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 3rem;
+  height: 3rem;
+  opacity: 0;
+}
+.ba-range::-moz-range-thumb {
+  width: 3rem;
+  height: 3rem;
+  opacity: 0;
+  border: 0;
+}
+.ba-range:focus-visible + .ba-handle span {
+  outline: 3px solid var(--color-rose);
+  outline-offset: 3px;
+}
+
+/* ---------- Makeup product animation (ProductAnimation.tsx) ---------- */
+@keyframes lip-cap {
+  0%, 12% { transform: translateY(0); }
+  26%, 68% { transform: translateY(-120px); }
+  82%, 100% { transform: translateY(0); }
+}
+@keyframes lip-bullet {
+  0%, 28% { transform: translateY(0); }
+  44%, 58% { transform: translateY(-42px); }
+  72%, 100% { transform: translateY(0); }
+}
+@keyframes compact-lid {
+  0%, 10% { transform: rotate(0deg); }
+  26%, 62% { transform: rotate(-78deg); }
+  78%, 100% { transform: rotate(0deg); }
+}
+@keyframes polish-cap {
+  0%, 14% { transform: translateY(0) rotate(0deg); }
+  30%, 64% { transform: translateY(-62px) rotate(6deg); }
+  80%, 100% { transform: translateY(0) rotate(0deg); }
+}
+@keyframes spark {
+  0%, 100% { opacity: 0.15; transform: scale(0.6); }
+  50% { opacity: 0.9; transform: scale(1); }
+}
+
+.product-scene .lip-cap,
+.product-scene .lip-bullet,
+.product-scene .compact-lid,
+.product-scene .polish-cap,
+.product-scene .spark {
+  transform-box: fill-box;
+  animation-duration: 8s;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.25, 1);
+  animation-iteration-count: infinite;
+}
+.product-scene .lip-cap { animation-name: lip-cap; }
+.product-scene .lip-bullet { animation-name: lip-bullet; }
+.product-scene .compact-lid { animation-name: compact-lid; transform-origin: left bottom; animation-delay: -2.5s; }
+.product-scene .polish-cap { animation-name: polish-cap; transform-origin: center bottom; animation-delay: -5s; }
+.product-scene .spark { animation-name: spark; animation-duration: 3.6s; transform-origin: center; animation-timing-function: ease-in-out; }
+.product-scene[data-active="false"] * { animation-play-state: paused; }
+
+html[data-lowpower] .product-scene * { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .product-scene * { animation: none !important; }
 }

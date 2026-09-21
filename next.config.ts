@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Pin the project root (avoids lockfile detection picking a parent folder).
+  turbopack: { root: process.cwd() },
 };
 
 export default nextConfig;

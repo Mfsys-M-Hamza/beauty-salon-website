@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-hidden="true">
+<!-- PLACEHOLDER IMAGE: Team portrait 2 (800x1000).. Replace this file (same name) or update the path in src/config/salon.ts. -->
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9DDE6"/><stop offset="1" stop-color="#C7A9BE"/></linearGradient>
+<filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="57"/></filter>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/>
+<g filter="url(#soft)"><circle cx="412" cy="444" r="269" fill="#C7A9BE" opacity="0.42"/><circle cx="297" cy="480" r="152" fill="#C7A9BE" opacity="0.68"/><circle cx="284" cy="851" r="189" fill="#C7A9BE" opacity="0.57"/><circle cx="138" cy="591" r="203" fill="#E9DDE6" opacity="0.51"/></g>
+<path d="M246 820 V368 a168 168 0 0 1 336 0 V820 Z" fill="#E9DDE6" fill-opacity="0.45" stroke="#4A2F45" stroke-opacity="0.25" stroke-width="2.0"/>
+<circle cx="400" cy="550" r="216" fill="none" stroke="#8E6482" stroke-opacity="0.25" stroke-width="2.0"/><circle cx="400" cy="550" r="288" fill="none" stroke="#8E6482" stroke-opacity="0.18" stroke-width="2.0"/><circle cx="400" cy="550" r="360" fill="none" stroke="#8E6482" stroke-opacity="0.11" stroke-width="2.0"/>
+</svg>
