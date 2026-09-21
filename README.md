@@ -14,13 +14,24 @@ npm run dev                  # http://localhost:3000
 
 ## Build and deploy
 
+The site is a fully static export (`output: "export"`), so it needs no server.
+
 ```bash
 npm run lint
-npm run build
-npm run start                # serves the production build
+npm run build      # writes the site to ./out
+npx serve out      # optional local preview of the production build
 ```
 
-Deploy to Vercel (import the repo, add `NEXT_PUBLIC_SITE_URL`), or any Node host that runs `npm run build && npm run start`. The site is fully static, so it can also be hosted on any platform that supports Next.js.
+### GitHub Pages (included)
+`.github/workflows/deploy.yml` builds and publishes the site on every push to `main`.
+
+1. In the GitHub repo open **Settings > Pages** and set **Source** to **GitHub Actions** (once).
+2. Push to `main` (or run the workflow from the **Actions** tab).
+3. The site appears at `https://<owner>.github.io/<repo>/`. The workflow sets the base path and site URL for you.
+
+Custom domain: add the domain under **Settings > Pages**, then add repository variables **SITE_URL** (e.g. `https://www.yoursalon.com`) and leave **BASE_PATH** empty.
+
+Note: GitHub Pages on a *private* repository needs a paid GitHub plan. Other hosts (Netlify, Cloudflare Pages, Vercel) also work: run `npm run build` and publish `out`.
 
 ## Customising for a new client
 
@@ -49,7 +60,7 @@ See [`public/images/README.md`](public/images/README.md). Replace files keeping 
 `social` in `salon.ts`. Entries still set to a placeholder such as `[INSTAGRAM URL]` render as inactive icons. Supported ids: `instagram`, `facebook`, `tiktok`, `youtube`. Remove an entry to hide it.
 
 ### 8. Configure the domain
-Set `NEXT_PUBLIC_SITE_URL` (e.g. `https://www.yoursalon.com`, no trailing slash) in `.env.local` and in your host's environment settings. It drives canonical URLs, Open Graph, structured data, `robots.txt` and `sitemap.xml`. Then point your DNS at the host as its documentation describes.
+Set `NEXT_PUBLIC_SITE_URL` (e.g. `https://www.yoursalon.com`, no trailing slash) in `.env.local` and in your host's environment settings (on GitHub Pages: the `SITE_URL` variable). If the site lives under a sub-path, also set `NEXT_PUBLIC_BASE_PATH` (e.g. `/repo-name`). It drives canonical URLs, Open Graph, structured data, `robots.txt` and `sitemap.xml`. Then point your DNS at the host as its documentation describes.
 
 ### 9. Booking
 The form validates input, then opens WhatsApp with a pre-filled message. It is a request, not a confirmed booking, and the site says so. Set `contact.appointmentUrl` to also show a "Book online" button (Fresha, Calendly, ...). Time slots: `bookingTimeSlots`. Closed days come from `hours`.
@@ -58,6 +69,7 @@ The form validates input, then opens WhatsApp with a pre-filled message. It is a
 - Replace every `[...]` placeholder, sample testimonial, sample offer, staff profile and image.
 - Set `showPlaceholderLabels: false` to hide "Sample" and "Placeholder" badges.
 - Review Privacy Policy and Terms text with a legal adviser (`src/app/privacy-policy`, `src/app/terms-and-conditions`).
+- Edit the initials in `public/icon.svg` (favicon) to match `salon.logo.initials`.
 - Optionally replace the generated social card (`src/app/opengraph-image.tsx`) with a designed image.
 
 ## Animated clips and motion

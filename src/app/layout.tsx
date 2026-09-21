@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     url: "/",
   },
   twitter: { card: "summary_large_image", title: salon.seo.defaultTitle, description: salon.seo.description },
+  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/icon.svg` },
   robots: { index: true, follow: true },
 };
 

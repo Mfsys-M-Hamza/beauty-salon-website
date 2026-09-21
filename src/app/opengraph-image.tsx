@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { salon } from "@/config/salon";
 
+export const dynamic = "force-static";
 export const alt = `${salon.name}: ${salon.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
