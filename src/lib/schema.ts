@@ -22,9 +22,11 @@ export function beautySalonSchema() {
       streetAddress: contact.address.street,
       addressLocality: contact.address.city,
       addressRegion: contact.address.region,
-      postalCode: contact.address.postalCode,
+      postalCode: clean(contact.address.postalCode),
       addressCountry: contact.address.country,
     },
+    geo: { "@type": "GeoCoordinates", latitude: contact.geo.latitude, longitude: contact.geo.longitude },
+    hasMap: clean(contact.googleMapsUrl),
     areaServed: contact.serviceAreas,
     openingHoursSpecification: salon.hours
       .filter((d) => !d.closed)

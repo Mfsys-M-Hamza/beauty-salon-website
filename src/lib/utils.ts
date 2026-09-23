@@ -54,7 +54,7 @@ export const hasOnlineBooking = () => !isPlaceholder(salon.contact.appointmentUr
 
 export const singleLineAddress = () => {
   const { street, city, region, postalCode } = salon.contact.address;
-  return [street, city, region, postalCode].join(", ");
+  return [street, city, region, postalCode].filter((part) => !isPlaceholder(part)).join(", ");
 };
 
 export function findClip(page: PageName, section: string): MediaClip | undefined {

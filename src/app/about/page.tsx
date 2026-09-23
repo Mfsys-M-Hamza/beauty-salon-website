@@ -10,6 +10,7 @@ import { FeatureGrid } from "@/components/sections/FeatureGrid";
 import { PageHero } from "@/components/sections/PageHero";
 import { QualityStatements } from "@/components/sections/QualityStatements";
 import { TeamGrid } from "@/components/sections/TeamGrid";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { Timeline } from "@/components/sections/Timeline";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
@@ -90,6 +91,8 @@ export default function AboutPage() {
           <Timeline />
         </div>
       </section>
+
+      <Testimonials />
 
       <CTASection title="Come and say hello" text="Book a visit or message us with any questions before your first appointment." />
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />

@@ -57,7 +57,7 @@ export default function HomePage() {
       )}
 
       <GalleryPreview />
-      <Testimonials />
+      <Testimonials limit={6} />
 
       <section aria-labelledby="visit-title" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <SectionHeading id="visit-title" eyebrow="Visit us" title="Opening hours and location" />
