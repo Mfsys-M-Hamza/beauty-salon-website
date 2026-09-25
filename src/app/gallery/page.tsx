@@ -19,7 +19,7 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="Gallery"
         title="Our work, up close"
-        text="Photos and short clips of hair, makeup, skincare and nails. Tap any image to view it full screen."
+        text="Photos and short clips of our bridal, party makeup and hair work. Tap any image to view it full screen."
         clip={findClip("gallery", "intro")}
       />
       <section aria-label="Gallery" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

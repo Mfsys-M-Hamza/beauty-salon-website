@@ -86,6 +86,8 @@ export interface BeforeAfterPair {
   description: string;
   before: ImageAsset;
   after: ImageAsset;
+  /** Shows a "Sample images" badge until real client photos are used. */
+  isSample?: boolean;
 }
 
 export interface TeamMember {

@@ -27,7 +27,7 @@ export function BeforeAfterSlider({ pair, sizes = "(min-width: 1024px) 560px, 10
 
         <span className="absolute top-4 left-4 rounded-full bg-ink/80 px-3 py-1 text-sm font-semibold text-white">Before</span>
         <span className="absolute top-4 right-4 rounded-full bg-ink/80 px-3 py-1 text-sm font-semibold text-white">After</span>
-        <PlaceholderBadge label="Sample images" className="absolute bottom-4 left-4" />
+        {pair.isSample && <PlaceholderBadge label="Sample images" className="absolute bottom-4 left-4" />}
 
         <input
           type="range"

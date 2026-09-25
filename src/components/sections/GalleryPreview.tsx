@@ -17,7 +17,7 @@ export function GalleryPreview() {
           id="gallery-preview-title"
           eyebrow="Gallery"
           title="A look at our work"
-          text="Recent hair, makeup, skincare and nail work."
+          text="Recent bridal, party makeup and hair work from our salon."
         />
       </div>
       <Reveal className="marquee mt-12 overflow-hidden" >

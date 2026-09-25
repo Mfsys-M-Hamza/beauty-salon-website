@@ -279,29 +279,33 @@ const faqs: Faq[] = [
 // Gallery & before/after
 // ---------------------------------------------------------------------------
 const galleryCategories = [
-  { id: "hair", label: "Hair" },
-  { id: "makeup", label: "Makeup" },
-  { id: "skin", label: "Skin & Spa" },
-  { id: "nails", label: "Nails" },
-  { id: "salon", label: "Salon" },
+  { id: "bridal", label: "Bridal" },
+  { id: "party", label: "Party Makeup" },
+  { id: "hairstyling", label: "Hairstyling" },
+  { id: "hair-colour", label: "Hair Colour & Treatments" },
 ];
 
-const g = (n: number) => `/images/gallery/gallery-${String(n).padStart(2, "0")}.jpg`;
+/** Client work from @roop_salon_faisalabad. */
+const g = (name: string) => `/images/gallery/${name}.jpg`;
+const v = (name: string) => ({ mp4: `/videos/${name}.mp4` });
 const gallery: GalleryItem[] = [
-  { id: "g1", type: "image", category: "hair", title: "Blow-dry finish", image: image(g(1), "Stylist blow-drying and styling a client's hair", 800, 1000) },
-  { id: "g2", type: "image", category: "makeup", title: "Bridal look", image: image(g(2), "Bride in a red bridal outfit and veil", 800, 1000) },
-  { id: "g3", type: "video", category: "hair", title: "Colour application (clip)", image: image(g(3), "Colourist applying hair colour in a salon", 800, 1000) },
-  { id: "g4", type: "image", category: "skin", title: "Facial massage", image: image(g(4), "Client receiving a facial massage", 800, 1000) },
-  { id: "g5", type: "image", category: "nails", title: "Colourful nail art", image: image(g(5), "Hands with colourful nail art", 800, 1000) },
-  { id: "g6", type: "image", category: "hair", title: "Soft waves", image: image(g(6), "Long, soft silver-blonde waves", 800, 1000) },
-  { id: "g7", type: "video", category: "makeup", title: "Makeup application (clip)", image: image(g(7), "Woman applying makeup in front of a mirror", 800, 1000) },
-  { id: "g8", type: "image", category: "salon", title: "Styling stations", image: image(g(8), "Salon styling stations with black chairs and round mirrors", 800, 1000) },
-  { id: "g9", type: "video", category: "skin", title: "Relaxing facial massage (clip)", image: image(g(9), "Hands giving a relaxing facial massage in warm light", 800, 1000) },
+  { id: "bridal-green", type: "image", category: "bridal", title: "Mehndi bridal look", image: image(g("bridal-green"), "Bride in a green outfit with soft glam makeup, a jewelled forehead piece and a side braid with white flowers", 800, 1000) },
+  { id: "clip-bridal-makeup", type: "video", category: "bridal", title: "Bridal makeup (clip)", image: image(g("clip-bridal-makeup"), "Bride in maroon with bold eye makeup, deep red lips and gold jewellery", 720, 900), video: v("clip-bridal-makeup") },
+  { id: "bun-roses", type: "image", category: "hairstyling", title: "Textured bun with roses", image: image(g("bun-roses"), "Voluminous low bun decorated with red roses and a gold hair ornament", 800, 1000) },
+  { id: "party-orange", type: "image", category: "party", title: "Party glam", image: image(g("party-orange"), "Client in an orange outfit with winged liner, soft pink lips and curled hair", 800, 1000) },
+  { id: "clip-smoothing", type: "video", category: "hair-colour", title: "Hair smoothing (clip)", image: image(g("clip-smoothing"), "Long, sleek, straight dark hair after a smoothing treatment", 720, 900), video: v("clip-smoothing") },
+  { id: "bride-lilac", type: "image", category: "bridal", title: "Nikkah look", image: image(g("bride-lilac"), "Bride in lilac with soft pink makeup, a diamond necklace and long waves", 800, 1000) },
+  { id: "bun-side", type: "image", category: "hairstyling", title: "Voluminous side bun", image: image(g("bun-side"), "Side view of a voluminous textured bun with face-framing curls", 800, 1000) },
+  { id: "clip-hair-colour", type: "video", category: "hair-colour", title: "Blue and purple colour (clip)", image: image(g("clip-hair-colour"), "Long hair coloured in blue, purple and teal tones", 720, 900), video: v("clip-hair-colour") },
+  { id: "party-lilac", type: "image", category: "party", title: "Evening makeup", image: image(g("party-lilac"), "Client in a lilac outfit with smoky eye makeup and soft curls", 800, 1000) },
+  { id: "clip-highlights", type: "video", category: "hair-colour", title: "Ash highlights (clip)", image: image(g("clip-highlights"), "Long straight hair with ash-blonde highlights", 720, 900), video: v("clip-highlights") },
+  { id: "curls-back", type: "image", category: "hairstyling", title: "Long glam curls", image: image(g("curls-back"), "Back view of a long half-up ponytail with glossy curls", 800, 1000) },
+  { id: "clip-bun-styling", type: "video", category: "hairstyling", title: "Bun styling (clip)", image: image(g("clip-bun-styling"), "Client with a styled bun and gold hair ornament", 720, 900), video: v("clip-bun-styling") },
 ];
 
 const beforeAfter: BeforeAfterPair[] = [
-  { id: "ba-colour", title: "Colour refresh", description: "[Describe the treatment, e.g. balayage and gloss.] Use images shot from the same angle and light.", before: image("/images/before-after/colour-before.svg", "Before: hair with dull, uneven colour", 1200, 900), after: image("/images/before-after/colour-after.svg", "After: hair with even, glossy colour", 1200, 900) },
-  { id: "ba-skin", title: "Skin glow", description: "[Describe the treatment, e.g. a course of facials.] Only show results you can genuinely deliver, with client consent.", before: image("/images/before-after/skin-before.svg", "Before: tired-looking skin", 1200, 900), after: image("/images/before-after/skin-after.svg", "After: fresher, more even-looking skin", 1200, 900) },
+  { id: "ba-bridal", title: "Bridal makeover", description: "Full bridal makeup, jewellery setting and dupatta draping, from a bare face to the finished nikkah look.", before: image("/images/before-after/bridal-before.jpg", "Before: the bride with no makeup, wearing a white dupatta", 800, 1000), after: image("/images/before-after/bridal-after.jpg", "After: the same bride with full bridal makeup, a pearl forehead piece and jewellery", 800, 1000) },
+  { id: "ba-smoothing", title: "Hair smoothing", description: "Frizzy, wavy hair smoothed into sleek, straight, glossy lengths.", before: image("/images/before-after/smoothing-before.jpg", "Before: long frizzy, wavy hair seen from behind", 800, 1000), after: image("/images/before-after/smoothing-after.jpg", "After: the same hair smooth, straight and glossy", 800, 1000) },
 ];
 
 // ---------------------------------------------------------------------------
