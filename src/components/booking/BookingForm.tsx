@@ -113,8 +113,8 @@ export function BookingForm() {
     return (
       <div role="status" className="pop-in rounded-3xl border border-line bg-white p-8 text-center shadow-soft sm:p-12">
         <svg viewBox="0 0 64 64" className="mx-auto size-20" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" fill="#f3dfdb" />
-          <path className="draw-check" d="M19 33l9 9 17-19" fill="none" stroke="#8f4759" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="32" cy="32" r="30" fill="#ecdcb6" />
+          <path className="draw-check" d="M19 33l9 9 17-19" fill="none" stroke="#7a5a14" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         <h2 ref={successRef} tabIndex={-1} className="mt-6 text-4xl outline-none">
           Your request is ready
@@ -170,7 +170,7 @@ export function BookingForm() {
           {(a) => <input type="text" autoComplete="name" placeholder="Your name" className={inputClasses(!!errors.name)} {...a} {...bind("name")} />}
         </Field>
         <Field name="phone" label="Phone number" required error={errors.phone} delay={60}>
-          {(a) => <input type="tel" autoComplete="tel" inputMode="tel" placeholder="+1 555 123 4567" className={inputClasses(!!errors.phone)} {...a} {...bind("phone")} />}
+          {(a) => <input type="tel" autoComplete="tel" inputMode="tel" placeholder="+92 300 1234567" className={inputClasses(!!errors.phone)} {...a} {...bind("phone")} />}
         </Field>
         <Field name="email" label="Email address" required error={errors.email} delay={120} className="sm:col-span-2">
           {(a) => <input type="email" autoComplete="email" placeholder="name@example.com" className={inputClasses(!!errors.email)} {...a} {...bind("email")} />}

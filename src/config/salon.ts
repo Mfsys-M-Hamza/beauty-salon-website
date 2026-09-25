@@ -37,29 +37,29 @@ const image = (src: string, alt: string, width: number, height: number): ImageAs
 // ---------------------------------------------------------------------------
 // Identity & contact
 // ---------------------------------------------------------------------------
-const name = "Layal Lash by Saba Kashif";
-const city = "Islamabad";
+const name = "Roop Beauty Salon";
+const city = "Faisalabad";
 
 const contact = {
-  ownerName: "Saba Kashif",
+  ownerName: "[OWNER / MANAGER NAME]",
   /** `display` is shown on the site, `dial` is used for tel: links (digits and +). */
-  phone: { display: "+92 313 5131346", dial: "+923135131346" },
+  phone: { display: "+92 336 6593199", dial: "+923366593199" },
   /** `number` is digits only, with country code and no "+" (used for wa.me links). */
-  whatsapp: { display: "+92 313 5131346", number: "923135131346" },
-  email: "[EMAIL ADDRESS]",
+  whatsapp: { display: "+92 336 6593199", number: "923366593199" },
+  email: "roop.sealon@gmail.com",
   address: {
-    street: "First floor, above K&N's, Main Double Road, Soan Garden",
+    street: "House #749, Siddique Chowk, Main Road, D-Type Colony",
     city,
-    region: "Islamabad Capital Territory",
+    region: "Punjab",
     postalCode: "[POSTAL CODE]",
     country: "PK",
   },
-  serviceAreas: ["Soan Garden", "PWD Housing Society", "Police Foundation", "Islamabad Expressway"],
+  serviceAreas: ["D-Type Colony", "Ghulam Muhammad Abad", `${city} city`],
   /** Optional. When empty or a placeholder, a Google Maps search of the address is used. */
   googleMapsUrl:
-    "https://www.google.com/maps/place/Layal+Lash+by+Saba+kashif+salon+%26+Asthetics+beauty+%26+academy/@33.5638125,73.1499375,17z/data=!4m6!3m5!1s0x38dfec4ce3c2a239:0xac46afc333067b86!8m2!3d33.5638125!4d73.1499375!16s%2Fg%2F11f15h_kyg",
+    "https://www.google.com/maps/place/Roop+Beauty+salon/@31.379036,73.080451,17z/data=!4m6!3m5!1s0x39225dc553e27bcf:0x8796e929762d1143!8m2!3d31.379036!4d73.080451!16s%2Fg%2F11kspyxmbx",
   /** Map pin coordinates from the Google Maps listing. */
-  geo: { latitude: 33.5638125, longitude: 73.1499375 },
+  geo: { latitude: 31.379036, longitude: 73.080451 },
   /** Optional online booking page (Fresha, Calendly...). Leave "" to hide the button. */
   appointmentUrl: "",
 };
@@ -76,9 +76,8 @@ const hours: BusinessDay[] = [
 
 /** Entries whose url is still a placeholder are shown as inactive icons. */
 const social: SocialLink[] = [
-  { id: "instagram", label: "Instagram", url: "https://www.instagram.com/layal_lash_by_saba_kashif/" },
-  { id: "facebook", label: "Facebook", url: "https://www.facebook.com/p/Layal-Lash-Beauty-Salon-Insititute-100063909936573/" },
-  { id: "tiktok", label: "TikTok", url: "https://www.tiktok.com/@layallashbysabakashif" },
+  { id: "instagram", label: "Instagram", url: "https://www.instagram.com/roop_salon_faisalabad/" },
+  { id: "facebook", label: "Facebook", url: "https://www.facebook.com/roopsalon.pk/" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -122,15 +121,15 @@ const categories: Category[] = [
   },
   {
     id: "facials-skincare",
-    name: "Facials, Skin & Aesthetics",
-    description: "Hydrafacials, BB Glow, PRP and brightening facials chosen after a skin consultation.",
+    name: "Facials & Skincare",
+    description: "Cleansing, hydrating and brightening facials chosen after a skin consultation.",
     icon: "flower",
     image: image("/images/services/facials-skincare.jpg", "Client receiving a facial treatment from a therapist in gloves", 800, 600),
   },
   {
     id: "mani-pedi",
     name: "Manicure & Pedicure",
-    description: "Careful nail shaping, cuticle care, polish and acrylic extensions.",
+    description: "Careful nail shaping, cuticle care and polish for hands and feet.",
     icon: "hand",
     image: image("/images/services/mani-pedi.jpg", "Nail technician applying polish during a manicure", 800, 600),
   },
@@ -144,7 +143,7 @@ const categories: Category[] = [
   {
     id: "lashes-brows",
     name: "Eyelash & Eyebrow",
-    description: "Lash extensions, lifts, brow shaping and tinting to frame your eyes.",
+    description: "Shaping, tinting and lash services to frame your eyes naturally.",
     icon: "eye",
     image: image("/images/services/lashes-brows.jpg", "Close-up of an eye with defined lashes and brows", 800, 600),
   },
@@ -170,7 +169,7 @@ const services: Service[] = [
   { id: "trim", categoryId: "hair-styling", name: "Trim & Shape", description: "Light tidy-up to keep your current length healthy.", price: 700, priceType: "from", durationMinutes: 30 },
 
   { id: "root-colour", categoryId: "hair-coloring", name: "Root Colour", description: "Regrowth colour matched to your existing shade.", price: 3500, priceType: "from", durationMinutes: 90 },
-  { id: "highlights", categoryId: "hair-coloring", name: "Highlights / Balayage", description: "Hand-placed lightening for soft dimension. Price depends on length.", price: 9000, priceType: "from", durationMinutes: 150 },
+  { id: "highlights", categoryId: "hair-coloring", name: "Highlights / Balayage", description: "Hand-placed lightening for soft dimension. Price depends on length.", price: 9000, priceType: "from", durationMinutes: 150, featured: true },
   { id: "gloss", categoryId: "hair-coloring", name: "Colour Gloss", description: "Tone-refreshing gloss for shine and colour longevity.", price: 2500, priceType: "from", durationMinutes: 45 },
 
   { id: "deep-conditioning", categoryId: "hair-treatments", name: "Deep Conditioning Treatment", description: "Intensive moisture treatment with scalp massage.", price: 2000, priceType: "from", durationMinutes: 45 },
@@ -184,15 +183,10 @@ const services: Service[] = [
 
   { id: "signature-facial", categoryId: "facials-skincare", name: "Signature Facial", description: "Cleanse, exfoliate, massage and mask for a fresh glow.", price: 3500, priceType: "from", durationMinutes: 60, featured: true },
   { id: "hydrating-facial", categoryId: "facials-skincare", name: "Hydrating Facial", description: "Moisture-focused facial for dry or tired skin.", price: 4000, priceType: "from", durationMinutes: 60 },
-  { id: "hydrafacial", categoryId: "facials-skincare", name: "Hydrafacial", description: "Deep cleanse, exfoliation and hydration for clean, glowing skin.", price: 6000, priceType: "from", durationMinutes: 60, featured: true, badge: "Client favourite" },
-  { id: "bb-glow", categoryId: "facials-skincare", name: "BB Glow", description: "Tinted serum treatment for a more even, luminous-looking complexion. Patch test required.", price: 8000, priceType: "from", durationMinutes: 75 },
-  { id: "prp-facial", categoryId: "facials-skincare", name: "PRP Skin Treatment", description: "Platelet-rich plasma treatment to support skin texture and renewal. Consultation required.", price: 15000, priceType: "from", durationMinutes: 60 },
-  { id: "lip-treatment", categoryId: "facials-skincare", name: "Lip Treatment", description: "Treatment to soften, brighten and even out lip colour. Consultation required.", price: 5000, priceType: "from", durationMinutes: 45 },
   { id: "express-facial", categoryId: "facials-skincare", name: "Express Facial", description: "A quick refresh between appointments.", price: 2000, priceType: "fixed", durationMinutes: 30 },
 
   { id: "classic-manicure", categoryId: "mani-pedi", name: "Classic Manicure", description: "Shape, cuticle care, hand massage and polish.", price: 1500, priceType: "fixed", durationMinutes: 45 },
-  { id: "classic-pedicure", categoryId: "mani-pedi", name: "Classic Pedicure", description: "Foot soak, exfoliation, nail care and polish.", price: 2000, priceType: "fixed", durationMinutes: 60 },
-  { id: "acrylic-nails", categoryId: "mani-pedi", name: "Acrylic Nails", description: "Full set of acrylic extensions, shaped and finished with your choice of design.", price: 4000, priceType: "from", durationMinutes: 90 },
+  { id: "classic-pedicure", categoryId: "mani-pedi", name: "Classic Pedicure", description: "Foot soak, exfoliation, nail care and polish.", price: 2000, priceType: "fixed", durationMinutes: 60, featured: true },
   { id: "mani-pedi-combo", categoryId: "mani-pedi", name: "Manicure & Pedicure", description: "Both treatments in one relaxed visit.", price: 3200, priceType: "fixed", durationMinutes: 100 },
 
   { id: "eyebrow-threading", categoryId: "waxing-threading", name: "Eyebrow Threading", description: "Precise shaping using cotton thread.", price: 300, priceType: "fixed", durationMinutes: 15 },
@@ -200,7 +194,6 @@ const services: Service[] = [
   { id: "leg-wax", categoryId: "waxing-threading", name: "Leg Waxing", description: "Half or full leg waxing with a soothing finish.", price: 1500, priceType: "from", durationMinutes: 45 },
 
   { id: "brow-shape-tint", categoryId: "lashes-brows", name: "Brow Shape & Tint", description: "Shaping and tint to define your natural brows.", price: 1200, priceType: "fixed", durationMinutes: 30 },
-  { id: "lash-extensions", categoryId: "lashes-brows", name: "Lash Extensions", description: "Classic or volume extensions applied lash by lash for a fuller look. Patch test advised.", price: 5000, priceType: "from", durationMinutes: 120, featured: true },
   { id: "lash-lift", categoryId: "lashes-brows", name: "Lash Lift & Tint", description: "Lifted, darker lashes without daily curling. Patch test required.", price: 3500, priceType: "from", durationMinutes: 60 },
 
   { id: "relaxing-massage", categoryId: "massage-spa", name: "Relaxing Massage", description: "Full-body massage with warm oils.", price: 5000, priceType: "from", durationMinutes: 60 },
@@ -227,31 +220,14 @@ const offers: Offer[] = [
 // ---------------------------------------------------------------------------
 /** Overall rating shown above the testimonials, from the Google Maps listing. */
 const googleReviews = {
-  rating: 4.1,
-  count: 58,
+  rating: 5,
+  count: 3,
   url: contact.googleMapsUrl,
 };
 
-/**
- * Public Google reviews (lightly trimmed, spelling tidied). The first entries are
- * shown on the home page; the full list is shown on the About page.
- * Per-review stars are inferred from the wording where Google's star wasn't copied.
- */
+/** Public Google reviews (spelling tidied). The first entries are shown on the home page. */
 const testimonials: Testimonial[] = [
-  { name: "Ayesha B.", service: "Hydrafacial", rating: 5, isSample: false, quote: "My skin felt so clean, hydrated and fresh afterwards. The facial gave my skin a beautiful glow and I absolutely loved the results. Highly recommended!" },
-  { name: "Kiran B.", service: "Mani-pedi & waxing", rating: 5, isSample: false, quote: "Fantastic experience! Their mani-pedi and waxing are excellent, and the salon is super clean. The staff is extremely polite and the owner is wonderful." },
-  { name: "Asfa Y.", service: "Haircut, nails & makeup", rating: 5, isSample: false, quote: "This is my favourite salon. Saba Kashif is very professional and the staff is well trained. It is hygienically clean with a very aesthetic, professional setup." },
-  { name: "Ayesha T.", service: "Salon visit", rating: 5, isSample: false, quote: "I really appreciated that the salon is open 7 days a week, even on Fridays. They took their time with every step and made sure not to miss any part of the service." },
-  { name: "Halima S.", service: "Acrylic nails", rating: 5, isSample: false, quote: "The work is neat, the designs are beautiful, and the nails lasted for weeks with no lifting. Highly recommend!" },
-  { name: "Hira", service: "Mani-pedi & makeup", rating: 5, isSample: false, quote: "Excellent service and very good behaviour from the staff. The owner is very nice and one of the best in this area. The make-up artist is amazing." },
-  { name: "Inshrah N.", service: "Hydrafacial", rating: 5, isSample: false, quote: "In love with my skin after the hydrafacial! Super clean, professional and welcoming. Will definitely be coming back for regular sessions." },
-  { name: "Saaima S.", service: "Haircut", rating: 5, isSample: false, quote: "The service was excellent. They gave me exactly the haircut I showed them. Highly recommended!" },
-  { name: "Ayesha K.", service: "Facial & haircut", rating: 5, isSample: false, quote: "I absolutely loved their facial and haircut, both were done really well, and the staff is so professional and friendly." },
-  { name: "Bismah M.", service: "Hair colour", rating: 5, isSample: false, quote: "I always choose Layal Lash by Saba Kashif for all my services and they never disappoint. Today I was here for my hair colour and I love their work." },
-  { name: "Azan B.", service: "Waxing & mani-pedi", rating: 5, isSample: false, quote: "Manicure and pedicure are very good, and the studio is neat and clean. I highly recommend them." },
-  { name: "Abdul A.", service: "Makeup", rating: 5, isSample: false, quote: "Great ambience with a friendly environment. Enjoyed the services, and the best makeup artist." },
-  { name: "Nazia I.", service: "Salon services", rating: 5, isSample: false, quote: "All the staff and the owner are very friendly and cooperative, and their services are so good. I highly recommend going there." },
-  { name: "Adeen M.", service: "Party makeup & blow-dry", rating: 4, isSample: false, quote: "I went for party makeup and it was really good, and their blow-dry is so good I have been back several times. Overall a good experience. Satisfied!" },
+  { name: "Muhammad N.", service: "Google review", rating: 5, isSample: false, quote: "I like visiting. This salon is fabulous!" },
 ];
 
 const team: TeamMember[] = [
@@ -474,10 +450,11 @@ const seo = {
 export const salon = {
   name,
   city,
-  logo: { initials: "LL" },
-  tagline: "Beauty, care and confidence",
+  /** `image` (square) replaces the initials badge in the header when set. */
+  logo: { initials: "RS", image: "/images/brand/roop-mark.jpg" as string | undefined },
+  tagline: "Bridal makeup, hair and skincare",
   shortDescription: `A welcoming beauty salon in ${city} for hair, makeup, skincare and nails.`,
-  description: `${name} is a beauty salon in ${city} offering hair styling and colour, bridal and party makeup, facials, nail care, waxing and relaxing spa treatments. [Replace with a 2-3 sentence description of your salon, your approach and who you serve.]`,
+  description: `${name} is a beauty salon and institute in D-Type Colony, ${city}. We specialise in beauty, from bridal makeup to hair transformations and skincare, along with nail care, waxing and relaxing spa treatments.`,
   aboutIntro: `At ${name}, every appointment begins with a conversation. We want you to leave feeling refreshed, looked after and like yourself. [Replace with the salon's real story.]`,
   aboutImages: {
     story: image("/images/about/salon-story.jpg", "Stylist working with a client in a bright hair salon", 1000, 1250),

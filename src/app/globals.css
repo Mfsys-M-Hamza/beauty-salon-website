@@ -5,24 +5,24 @@
   Text colours were chosen to pass WCAG AA on the ivory / cream backgrounds.
 */
 @theme {
-  --color-ivory: #fbf7f2;
-  --color-cream: #f4ece3;
-  --color-blush: #f3dfdb;
-  --color-ink: #2b2428;
-  --color-ink-soft: #5d5359;
-  --color-rose: #8f4759;
-  --color-rose-dark: #6e3445;
-  --color-gold: #8e6a2c;
-  --color-gold-light: #dcbb84;
-  --color-line: #e6dcd0;
+  --color-ivory: #faf7f0;
+  --color-cream: #f1ebdd;
+  --color-blush: #ecdcb6;
+  --color-ink: #141210;
+  --color-ink-soft: #57504a;
+  --color-rose: #7a5a14;
+  --color-rose-dark: #5c430c;
+  --color-gold: #85651c;
+  --color-gold-light: #d8b25e;
+  --color-line: #e5dccb;
   --color-whatsapp: #0b7a4b;
   --color-whatsapp-dark: #085f3a;
 
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-heading), Georgia, serif;
 
-  --shadow-soft: 0 10px 40px -12px rgb(43 36 40 / 0.18);
-  --shadow-lift: 0 22px 50px -16px rgb(43 36 40 / 0.28);
+  --shadow-soft: 0 10px 40px -12px rgb(20 18 16 / 0.18);
+  --shadow-lift: 0 22px 50px -16px rgb(20 18 16 / 0.28);
 }
 
 html {

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -33,12 +34,16 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-line bg-ivory/90 backdrop-blur">
       <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" onClick={close} className="flex items-center gap-3" aria-label={`${salon.name}, home`}>
-          <span
-            aria-hidden="true"
-            className="flex size-11 items-center justify-center rounded-full bg-ink font-display text-lg font-semibold tracking-wide text-gold-light"
-          >
-            {salon.logo.initials}
-          </span>
+          {salon.logo.image ? (
+            <Image src={salon.logo.image} alt="" width={96} height={96} loading="eager" className="size-11 rounded-full bg-ink object-cover" />
+          ) : (
+            <span
+              aria-hidden="true"
+              className="flex size-11 items-center justify-center rounded-full bg-ink font-display text-lg font-semibold tracking-wide text-gold-light"
+            >
+              {salon.logo.initials}
+            </span>
+          )}
           <span className="font-display text-xl leading-none font-semibold text-ink sm:text-2xl">{salon.name}</span>
         </Link>
 

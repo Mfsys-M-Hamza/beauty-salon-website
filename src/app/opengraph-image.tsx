@@ -18,15 +18,15 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 96,
-          background: "#2b2428",
-          color: "#fbf7f2",
+          background: "#141210",
+          color: "#faf7f0",
         }}
       >
-        <div style={{ display: "flex", fontSize: 28, letterSpacing: 6, textTransform: "uppercase", color: "#dcbb84" }}>
+        <div style={{ display: "flex", fontSize: 28, letterSpacing: 6, textTransform: "uppercase", color: "#d8b25e" }}>
           {`Beauty salon in ${salon.city}`}
         </div>
         <div style={{ display: "flex", fontSize: 96, fontWeight: 700, marginTop: 24, lineHeight: 1.05 }}>{salon.name}</div>
-        <div style={{ display: "flex", fontSize: 36, marginTop: 28, color: "#f3dfdb" }}>{salon.tagline}</div>
+        <div style={{ display: "flex", fontSize: 36, marginTop: 28, color: "#ecdcb6" }}>{salon.tagline}</div>
       </div>
     ),
     size,

@@ -4,7 +4,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { PlaceholderBadge } from "@/components/ui/PlaceholderBadge";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { isPlaceholder } from "@/lib/utils";
+import { cn, isPlaceholder } from "@/lib/utils";
 
 /** Five stars filled to `rating` (fractions supported, e.g. 4.1). */
 function Stars({ rating, className }: { rating: number; className?: string }) {
@@ -42,7 +42,12 @@ export function Testimonials({ limit }: { limit?: number }) {
           <Stars rating={rating} />
           <span className="text-ink-soft">from {count} Google reviews</span>
         </Reveal>
-        <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <ul
+          className={cn(
+            "mt-12 grid gap-6",
+            items.length === 1 ? "mx-auto max-w-xl" : items.length === 2 ? "mx-auto max-w-4xl md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3",
+          )}
+        >
           {items.map((t, i) => (
             <Reveal as="li" key={t.name} delay={(i % 3) * 120} className="h-full">
               <figure className="flex h-full flex-col rounded-3xl bg-white p-8 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift motion-reduce:transform-none">

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Playfair_Display, Jost } from "next/font/google";
 import "./globals.css";
 import { salon } from "@/config/salon";
 import { Header } from "@/components/layout/Header";
@@ -9,14 +9,14 @@ import { MotionEnvironment } from "@/components/layout/MotionEnvironment";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { beautySalonSchema } from "@/lib/schema";
 
-const heading = Cormorant_Garamond({
+const heading = Playfair_Display({
   variable: "--font-heading",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   display: "swap",
 });
 
-const body = Manrope({
+const body = Jost({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fbf7f2",
+  themeColor: "#faf7f0",
   width: "device-width",
   initialScale: 1,
 };

@@ -92,7 +92,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Testimonials />
+      {/* The home page already shows the first 6; only repeat here when there are more. */}
+      {salon.testimonials.length > 6 && <Testimonials />}
 
       <CTASection title="Come and say hello" text="Book a visit or message us with any questions before your first appointment." />
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />
