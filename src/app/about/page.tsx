@@ -11,7 +11,6 @@ import { PageHero } from "@/components/sections/PageHero";
 import { QualityStatements } from "@/components/sections/QualityStatements";
 import { TeamGrid } from "@/components/sections/TeamGrid";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { Timeline } from "@/components/sections/Timeline";
 import { breadcrumbSchema } from "@/lib/schema";
 import { buildMetadata } from "@/lib/seo";
 import { findClip } from "@/lib/utils";
@@ -82,13 +81,6 @@ export default function AboutPage() {
           <div className="mt-12">
             <TeamGrid />
           </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="story-title" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <SectionHeading id="story-title" eyebrow="Our story" title="How we got here" />
-        <div className="mt-14">
-          <Timeline />
         </div>
       </section>
 

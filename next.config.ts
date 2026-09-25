@@ -10,7 +10,13 @@ const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   basePath,
-  images: { loader: "custom", loaderFile: "./src/lib/image-loader.ts" },
+  images: {
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
+    // scripts/optimize-images.mjs generates a WebP file for each of these widths; keep the lists in sync.
+    imageSizes: [96, 256, 384],
+    deviceSizes: [640, 960, 1280, 1920],
+  },
 };
 
 export default nextConfig;

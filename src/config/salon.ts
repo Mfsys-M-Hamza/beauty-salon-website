@@ -347,13 +347,17 @@ const clips: MediaClip[] = [
     mobile: { poster: image("/images/hero/hero-portrait.jpg", "", 1080, 1920) },
     alt: "Stylist gently styling a client's hair",
   }),
-  clip({
-    id: "home-experience", title: "The salon experience", description: "A short look at a treatment in progress.",
-    page: "home", section: "experience", decorative: false, briefKind: "section",
-    subject: "A facial or hair treatment shown in calm, close detail",
-    poster: p("treatment-experience", "Client with a facial mask and towel wrap"),
-    alt: "Short clip of a calming treatment at the salon",
-  }),
+  {
+    ...clip({
+      id: "home-experience", title: "The salon experience", description: "Close-up of finished bridal makeup and jewellery setting.",
+      page: "home", section: "experience", decorative: false, briefKind: "section",
+      subject: "A facial or hair treatment shown in calm, close detail",
+      poster: image("/images/home/bridal-detail.jpg", "Close-up of a bride with bronze eye makeup, long lashes and a pearl and gemstone matha patti", 1280, 960),
+      alt: "Close-up of a bride with bronze eye makeup, long lashes and a pearl and gemstone matha patti",
+    }),
+    // Client photo, not a clip: shown as a still without the placeholder label.
+    placeholder: false,
+  },
   {
     ...clip({
       id: "home-makeup", title: "Makeup artistry", description: "Animated makeup products beside the makeup services.",
@@ -476,6 +480,11 @@ export const salon = {
     headline: "Feel beautiful, from the first hello",
     subheadline: `Hair, makeup, skincare and nails in a calm, clean space in ${city}. Tell us what you have in mind and we will take care of the rest.`,
     highlights: ["Consultation with every service", "Clear prices", "Book by WhatsApp"],
+    /** Collage beside the headline (desktop). The first image is the large one. */
+    images: [
+      image("/images/home/mehndi-portrait.jpg", "Mehndi bride in an orange mirror-work outfit with a pearl matha patti and soft glam makeup", 900, 1125),
+      image("/images/home/barat-portrait.jpg", "Barat bride in a deep red embroidered outfit with emerald jewellery and a bold red lip", 900, 1125),
+    ],
   },
   contact,
   hours,
@@ -496,6 +505,14 @@ export const salon = {
   galleryCategories,
   gallery,
   beforeAfter,
+  /** Home page bridal lookbook. The first image is the large feature. */
+  lookbook: [
+    { title: "Mehndi twirl", image: image("/images/home/mehndi-twirl.jpg", "Mehndi bride twirling in a full orange and gold lehenga on a lawn", 900, 1125) },
+    { title: "Mehndi day", image: image("/images/home/mehndi-field.jpg", "Mehndi bride in an orange and gold lehenga with a flowing dupatta, smiling on a lawn", 900, 1125) },
+    { title: "Barat day", image: image("/images/home/couple-portrait.jpg", "Bride in red and groom in a black sherwani and turban smiling at each other", 900, 1125) },
+    { title: "Mehndi glow", image: image("/images/home/mehndi-side.jpg", "Mehndi bride in orange looking over her shoulder, hands resting on her collar", 900, 1125) },
+    { title: "The first look", image: image("/images/home/couple-walk.jpg", "Bride in a flowing red lehenga walking ahead of the groom in a garden", 900, 1125) },
+  ],
   clips,
   seo,
   /** Used by privacy and terms pages. */

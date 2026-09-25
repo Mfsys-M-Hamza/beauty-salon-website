@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/sections/CTASection";
 import { Experience } from "@/components/sections/Experience";
 import { FAQ } from "@/components/sections/FAQ";
+import { BridalLookbook } from "@/components/sections/BridalLookbook";
 import { FeaturedServices } from "@/components/sections/FeaturedServices";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
 import { Hero } from "@/components/sections/Hero";
@@ -29,6 +30,7 @@ export default function HomePage() {
     <>
       <Hero />
       <FeaturedServices />
+      <BridalLookbook />
       <Experience />
       <WhyChoose />
       <MakeupShowcase />
