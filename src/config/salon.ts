@@ -37,47 +37,49 @@ const image = (src: string, alt: string, width: number, height: number): ImageAs
 // ---------------------------------------------------------------------------
 // Identity & contact
 // ---------------------------------------------------------------------------
-const name = "Roop Beauty Salon";
-const city = "Faisalabad";
+const name = "Layal Lash by Saba Kashif";
+const city = "Islamabad";
 
 const contact = {
-  ownerName: "[OWNER / MANAGER NAME]",
+  ownerName: "Saba Kashif",
   /** `display` is shown on the site, `dial` is used for tel: links (digits and +). */
-  phone: { display: "+92 336 6593199", dial: "+923366593199" },
+  phone: { display: "+92 313 5131346", dial: "+923135131346" },
   /** `number` is digits only, with country code and no "+" (used for wa.me links). */
-  whatsapp: { display: "+92 336 6593199", number: "923366593199" },
-  email: "roop.sealon@gmail.com",
+  whatsapp: { display: "+92 313 5131346", number: "923135131346" },
+  email: "[EMAIL ADDRESS]",
   address: {
-    street: "House #749, Siddique Chowk, Main Road, D-Type Colony",
+    street: "First floor, above K&N's, Main Double Road, Block B, Soan Gardens",
     city,
-    region: "Punjab",
+    region: "Islamabad Capital Territory",
     postalCode: "[POSTAL CODE]",
     country: "PK",
   },
-  serviceAreas: ["D-Type Colony", "Ghulam Muhammad Abad", `${city} city`],
+  serviceAreas: ["Soan Gardens", "PWD Housing Society", "Police Foundation", "Islamabad Expressway"],
   /** Optional. When empty or a placeholder, a Google Maps search of the address is used. */
   googleMapsUrl:
-    "https://www.google.com/maps/place/Roop+Beauty+salon/@31.379036,73.080451,17z/data=!4m6!3m5!1s0x39225dc553e27bcf:0x8796e929762d1143!8m2!3d31.379036!4d73.080451!16s%2Fg%2F11kspyxmbx",
+    "https://www.google.com/maps/place/Layal+Lash+by+Saba+kashif+salon+%26+Asthetics+beauty+%26+academy/@33.5638125,73.1499375,17z/data=!4m6!3m5!1s0x38dfec4ce3c2a239:0xac46afc333067b86!8m2!3d33.5638125!4d73.1499375!16s%2Fg%2F11f15h_kyg",
   /** Map pin coordinates from the Google Maps listing. */
-  geo: { latitude: 31.379036, longitude: 73.080451 },
+  geo: { latitude: 33.5638125, longitude: 73.1499375 },
   /** Optional online booking page (Fresha, Calendly...). Leave "" to hide the button. */
   appointmentUrl: "",
 };
 
+/** From the Google Maps listing: open 7 days a week. */
 const hours: BusinessDay[] = [
-  { day: "Monday", open: "10:00", close: "19:00" },
-  { day: "Tuesday", open: "10:00", close: "19:00" },
-  { day: "Wednesday", open: "10:00", close: "19:00" },
-  { day: "Thursday", open: "10:00", close: "19:00" },
-  { day: "Friday", open: "10:00", close: "19:00" },
-  { day: "Saturday", open: "09:00", close: "20:00" },
-  { day: "Sunday", open: "00:00", close: "00:00", closed: true },
+  { day: "Monday", open: "11:00", close: "20:00" },
+  { day: "Tuesday", open: "11:00", close: "20:00" },
+  { day: "Wednesday", open: "11:00", close: "20:00" },
+  { day: "Thursday", open: "11:00", close: "20:00" },
+  { day: "Friday", open: "11:00", close: "20:00" },
+  { day: "Saturday", open: "11:00", close: "20:00" },
+  { day: "Sunday", open: "11:00", close: "20:00" },
 ];
 
 /** Entries whose url is still a placeholder are shown as inactive icons. */
 const social: SocialLink[] = [
-  { id: "instagram", label: "Instagram", url: "https://www.instagram.com/roop_salon_faisalabad/" },
-  { id: "facebook", label: "Facebook", url: "https://www.facebook.com/roopsalon.pk/" },
+  { id: "instagram", label: "Instagram", url: "https://www.instagram.com/layal_lash_by_saba_kashif/" },
+  { id: "facebook", label: "Facebook", url: "https://www.facebook.com/p/Layal-Lash-Beauty-Salon-Insititute-100063909936573/" },
+  { id: "tiktok", label: "TikTok", url: "https://www.tiktok.com/@layallashbysabakashif" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -121,15 +123,15 @@ const categories: Category[] = [
   },
   {
     id: "facials-skincare",
-    name: "Facials & Skincare",
-    description: "Cleansing, hydrating and brightening facials chosen after a skin consultation.",
+    name: "Facials, Skin & Aesthetics",
+    description: "Hydrafacials, BB Glow, PRP and brightening facials chosen after a skin consultation.",
     icon: "flower",
     image: image("/images/services/facials-skincare.jpg", "Client receiving a facial treatment from a therapist in gloves", 800, 600),
   },
   {
     id: "mani-pedi",
     name: "Manicure & Pedicure",
-    description: "Careful nail shaping, cuticle care and polish for hands and feet.",
+    description: "Careful nail shaping, cuticle care, polish and acrylic extensions.",
     icon: "hand",
     image: image("/images/services/mani-pedi.jpg", "Nail technician applying polish during a manicure", 800, 600),
   },
@@ -143,7 +145,7 @@ const categories: Category[] = [
   {
     id: "lashes-brows",
     name: "Eyelash & Eyebrow",
-    description: "Shaping, tinting and lash services to frame your eyes naturally.",
+    description: "Lash extensions, lifts, brow shaping and tinting to frame your eyes.",
     icon: "eye",
     image: image("/images/services/lashes-brows.jpg", "Close-up of an eye with defined lashes and brows", 800, 600),
   },
@@ -156,8 +158,8 @@ const categories: Category[] = [
   },
   {
     id: "packages",
-    name: "Salon Packages",
-    description: "Combined treatments at a set price for weddings, events or a full pamper day.",
+    name: "Layal Lash Deals",
+    description: "Set-price deals from our in-salon menu, each with a free add-on treatment.",
     icon: "star",
     image: image("/images/services/packages.jpg", "Lipstick and makeup products on a white surface", 800, 600),
   },
@@ -169,7 +171,7 @@ const services: Service[] = [
   { id: "trim", categoryId: "hair-styling", name: "Trim & Shape", description: "Light tidy-up to keep your current length healthy.", price: 700, priceType: "from", durationMinutes: 30 },
 
   { id: "root-colour", categoryId: "hair-coloring", name: "Root Colour", description: "Regrowth colour matched to your existing shade.", price: 3500, priceType: "from", durationMinutes: 90 },
-  { id: "highlights", categoryId: "hair-coloring", name: "Highlights / Balayage", description: "Hand-placed lightening for soft dimension. Price depends on length.", price: 9000, priceType: "from", durationMinutes: 150, featured: true },
+  { id: "highlights", categoryId: "hair-coloring", name: "Highlights / Balayage", description: "Hand-placed lightening for soft dimension. Price depends on length.", price: 9000, priceType: "from", durationMinutes: 150 },
   { id: "gloss", categoryId: "hair-coloring", name: "Colour Gloss", description: "Tone-refreshing gloss for shine and colour longevity.", price: 2500, priceType: "from", durationMinutes: 45 },
 
   { id: "deep-conditioning", categoryId: "hair-treatments", name: "Deep Conditioning Treatment", description: "Intensive moisture treatment with scalp massage.", price: 2000, priceType: "from", durationMinutes: 45 },
@@ -183,10 +185,15 @@ const services: Service[] = [
 
   { id: "signature-facial", categoryId: "facials-skincare", name: "Signature Facial", description: "Cleanse, exfoliate, massage and mask for a fresh glow.", price: 3500, priceType: "from", durationMinutes: 60, featured: true },
   { id: "hydrating-facial", categoryId: "facials-skincare", name: "Hydrating Facial", description: "Moisture-focused facial for dry or tired skin.", price: 4000, priceType: "from", durationMinutes: 60 },
+  { id: "hydrafacial", categoryId: "facials-skincare", name: "Hydrafacial", description: "Deep cleanse, exfoliation and hydration for clean, glowing skin.", price: 6000, priceType: "from", durationMinutes: 60, featured: true, badge: "Client favourite" },
+  { id: "bb-glow", categoryId: "facials-skincare", name: "BB Glow", description: "Tinted serum treatment for a more even, luminous-looking complexion. Patch test required.", price: 8000, priceType: "from", durationMinutes: 75 },
+  { id: "prp-facial", categoryId: "facials-skincare", name: "PRP Skin Treatment", description: "Platelet-rich plasma treatment to support skin texture and renewal. Consultation required.", price: 15000, priceType: "from", durationMinutes: 60 },
+  { id: "lip-treatment", categoryId: "facials-skincare", name: "Lip Treatment", description: "Treatment to soften, brighten and even out lip colour. Consultation required.", price: 5000, priceType: "from", durationMinutes: 45 },
   { id: "express-facial", categoryId: "facials-skincare", name: "Express Facial", description: "A quick refresh between appointments.", price: 2000, priceType: "fixed", durationMinutes: 30 },
 
   { id: "classic-manicure", categoryId: "mani-pedi", name: "Classic Manicure", description: "Shape, cuticle care, hand massage and polish.", price: 1500, priceType: "fixed", durationMinutes: 45 },
-  { id: "classic-pedicure", categoryId: "mani-pedi", name: "Classic Pedicure", description: "Foot soak, exfoliation, nail care and polish.", price: 2000, priceType: "fixed", durationMinutes: 60, featured: true },
+  { id: "classic-pedicure", categoryId: "mani-pedi", name: "Classic Pedicure", description: "Foot soak, exfoliation, nail care and polish.", price: 2000, priceType: "fixed", durationMinutes: 60 },
+  { id: "acrylic-nails", categoryId: "mani-pedi", name: "Acrylic Nails", description: "Full set of acrylic extensions, shaped and finished with your choice of design.", price: 4000, priceType: "from", durationMinutes: 90 },
   { id: "mani-pedi-combo", categoryId: "mani-pedi", name: "Manicure & Pedicure", description: "Both treatments in one relaxed visit.", price: 3200, priceType: "fixed", durationMinutes: 100 },
 
   { id: "eyebrow-threading", categoryId: "waxing-threading", name: "Eyebrow Threading", description: "Precise shaping using cotton thread.", price: 300, priceType: "fixed", durationMinutes: 15 },
@@ -194,24 +201,30 @@ const services: Service[] = [
   { id: "leg-wax", categoryId: "waxing-threading", name: "Leg Waxing", description: "Half or full leg waxing with a soothing finish.", price: 1500, priceType: "from", durationMinutes: 45 },
 
   { id: "brow-shape-tint", categoryId: "lashes-brows", name: "Brow Shape & Tint", description: "Shaping and tint to define your natural brows.", price: 1200, priceType: "fixed", durationMinutes: 30 },
+  { id: "lash-extensions", categoryId: "lashes-brows", name: "Lash Extensions", description: "Classic or volume extensions applied lash by lash for a fuller look. Patch test advised.", price: 5000, priceType: "from", durationMinutes: 120, featured: true },
   { id: "lash-lift", categoryId: "lashes-brows", name: "Lash Lift & Tint", description: "Lifted, darker lashes without daily curling. Patch test required.", price: 3500, priceType: "from", durationMinutes: 60 },
 
   { id: "relaxing-massage", categoryId: "massage-spa", name: "Relaxing Massage", description: "Full-body massage with warm oils.", price: 5000, priceType: "from", durationMinutes: 60 },
   { id: "back-shoulder", categoryId: "massage-spa", name: "Back & Shoulder Massage", description: "Focused relief for desk-tight muscles.", price: 2500, priceType: "fixed", durationMinutes: 30 },
 
-  { id: "pamper-package", categoryId: "packages", name: "Pamper Package", description: "Signature facial, manicure and blow-dry.", price: 8500, priceType: "from", durationMinutes: 180, featured: true, badge: "Best value" },
-  { id: "bridal-package", categoryId: "packages", name: "Bridal Package", description: "Bridal makeup, hair styling and manicure on the day.", price: 35000, priceType: "from", durationMinutes: 240 },
+  // Deals 8-13 from the salon's printed "Layal lash Deals" menu (Google Maps photo).
+  { id: "deal-spa-mani-pedi", categoryId: "packages", name: "Spa Manicure + Spa Pedicure", description: "Free simple cleansing, eyebrow and upper lip threading.", price: 3000, priceType: "fixed", durationMinutes: 120, featured: true, badge: "Deal" },
+  { id: "deal-whitening-mani-pedi", categoryId: "packages", name: "Whitening Manicure + Whitening Pedicure", description: "Free face bleach and polish.", price: 2000, priceType: "fixed", durationMinutes: 100 },
+  { id: "deal-whitening-facial", categoryId: "packages", name: "Johnson Whitening Facial", description: "Free hand polish.", price: 4000, priceType: "fixed", durationMinutes: 75 },
+  { id: "deal-face-polish", categoryId: "packages", name: "Face Polishing with Deep Cleansing", description: "Free eyebrow, upper lip and forehead threading.", price: 1500, priceType: "fixed", durationMinutes: 45 },
+  { id: "deal-hair-streaks", categoryId: "packages", name: "Hair Streaks", description: "Free damaged-hair repair treatment.", price: 5000, priceType: "fixed", durationMinutes: 150 },
+  { id: "deal-hair-dye", categoryId: "packages", name: "Basic Hair Dye", description: "Free deep conditioning and hair steaming.", price: 2000, priceType: "fixed", durationMinutes: 90 },
 ];
 
 const offers: Offer[] = [
   {
-    id: "new-client",
-    badge: "Sample offer",
-    title: "New client welcome offer",
-    description: "[OFFER DESCRIPTION, e.g. a welcome discount on a first facial or colour service.]",
-    terms: "[OFFER TERMS AND DATES]. Edit or remove this offer in src/config/salon.ts.",
-    ctaLabel: "Claim this offer",
-    serviceId: "signature-facial",
+    id: "spa-mani-pedi-deal",
+    badge: "Salon deal",
+    title: "Spa manicure + spa pedicure for Rs 3,000",
+    description: "Both spa treatments in one visit, with simple cleansing, eyebrow and upper lip threading included free.",
+    terms: "From the Layal Lash deals menu. Prices may change; we will confirm when you book.",
+    ctaLabel: "Book this deal",
+    serviceId: "deal-spa-mani-pedi",
   },
 ];
 
@@ -220,14 +233,31 @@ const offers: Offer[] = [
 // ---------------------------------------------------------------------------
 /** Overall rating shown above the testimonials, from the Google Maps listing. */
 const googleReviews = {
-  rating: 5,
-  count: 3,
+  rating: 4.1,
+  count: 60,
   url: contact.googleMapsUrl,
 };
 
-/** Public Google reviews (spelling tidied). The first entries are shown on the home page. */
+/**
+ * Public Google reviews (lightly trimmed, spelling tidied). The first entries are
+ * shown on the home page; the full list is shown on the About page.
+ * Per-review stars are inferred from the wording where Google's star wasn't copied.
+ */
 const testimonials: Testimonial[] = [
-  { name: "Muhammad N.", service: "Google review", rating: 5, isSample: false, quote: "I like visiting. This salon is fabulous!" },
+  { name: "Ayesha B.", service: "Hydrafacial", rating: 5, isSample: false, quote: "My skin felt so clean, hydrated and fresh afterwards. The facial gave my skin a beautiful glow and I absolutely loved the results. Highly recommended!" },
+  { name: "Kiran B.", service: "Mani-pedi & waxing", rating: 5, isSample: false, quote: "Fantastic experience! Their mani-pedi and waxing are excellent, and the salon is super clean. The staff is extremely polite and the owner is wonderful." },
+  { name: "Asfa Y.", service: "Haircut, nails & makeup", rating: 5, isSample: false, quote: "This is my favourite salon. Saba Kashif is very professional and the staff is well trained. It is hygienically clean with a very aesthetic, professional setup." },
+  { name: "Ayesha T.", service: "Salon visit", rating: 5, isSample: false, quote: "I really appreciated that the salon is open 7 days a week, even on Fridays. They took their time with every step and made sure not to miss any part of the service." },
+  { name: "Halima S.", service: "Acrylic nails", rating: 5, isSample: false, quote: "The work is neat, the designs are beautiful, and the nails lasted for weeks with no lifting. Highly recommend!" },
+  { name: "Hira", service: "Mani-pedi & makeup", rating: 5, isSample: false, quote: "Excellent service and very good behaviour from the staff. The owner is very nice and one of the best in this area. The make-up artist is amazing." },
+  { name: "Inshrah N.", service: "Hydrafacial", rating: 5, isSample: false, quote: "In love with my skin after the hydrafacial! Super clean, professional and welcoming. Will definitely be coming back for regular sessions." },
+  { name: "Saaima S.", service: "Haircut", rating: 5, isSample: false, quote: "The service was excellent. They gave me exactly the haircut I showed them. Highly recommended!" },
+  { name: "Ayesha K.", service: "Facial & haircut", rating: 5, isSample: false, quote: "I absolutely loved their facial and haircut, both were done really well, and the staff is so professional and friendly." },
+  { name: "Bismah M.", service: "Hair colour", rating: 5, isSample: false, quote: "I always choose Layal Lash by Saba Kashif for all my services and they never disappoint. Today I was here for my hair colour and I love their work." },
+  { name: "Azan B.", service: "Waxing & mani-pedi", rating: 5, isSample: false, quote: "Manicure and pedicure are very good, and the studio is neat and clean. I highly recommend them." },
+  { name: "Abdul A.", service: "Makeup", rating: 5, isSample: false, quote: "Great ambience with a friendly environment. Enjoyed the services, and the best makeup artist." },
+  { name: "Nazia I.", service: "Salon services", rating: 5, isSample: false, quote: "All the staff and the owner are very friendly and cooperative, and their services are so good. I highly recommend going there." },
+  { name: "Adeen M.", service: "Party makeup & blow-dry", rating: 4, isSample: false, quote: "I went for party makeup and it was really good, and their blow-dry is so good I have been back several times. Overall a good experience. Satisfied!" },
 ];
 
 const team: TeamMember[] = [
@@ -281,32 +311,27 @@ const faqs: Faq[] = [
 const galleryCategories = [
   { id: "bridal", label: "Bridal" },
   { id: "party", label: "Party Makeup" },
-  { id: "hairstyling", label: "Hairstyling" },
-  { id: "hair-colour", label: "Hair Colour & Treatments" },
+  { id: "hair", label: "Hair" },
+  { id: "mehndi", label: "Mehndi" },
+  { id: "salon", label: "Our Salon" },
 ];
 
-/** Client work from @roop_salon_faisalabad. */
-const g = (name: string) => `/images/gallery/${name}.jpg`;
-const v = (name: string) => ({ mp4: `/videos/${name}.mp4` });
+/** Client work and salon photos from @layal_lash_by_saba_kashif and the Google Maps listing. */
+const g = (name: string) => `/images/layal/${name}.jpg`;
 const gallery: GalleryItem[] = [
-  { id: "bridal-green", type: "image", category: "bridal", title: "Mehndi bridal look", image: image(g("bridal-green"), "Bride in a green outfit with soft glam makeup, a jewelled forehead piece and a side braid with white flowers", 800, 1000) },
-  { id: "clip-bridal-makeup", type: "video", category: "bridal", title: "Bridal makeup (clip)", image: image(g("clip-bridal-makeup"), "Bride in maroon with bold eye makeup, deep red lips and gold jewellery", 720, 900), video: v("clip-bridal-makeup") },
-  { id: "bun-roses", type: "image", category: "hairstyling", title: "Textured bun with roses", image: image(g("bun-roses"), "Voluminous low bun decorated with red roses and a gold hair ornament", 800, 1000) },
-  { id: "party-orange", type: "image", category: "party", title: "Party glam", image: image(g("party-orange"), "Client in an orange outfit with winged liner, soft pink lips and curled hair", 800, 1000) },
-  { id: "clip-smoothing", type: "video", category: "hair-colour", title: "Hair smoothing (clip)", image: image(g("clip-smoothing"), "Long, sleek, straight dark hair after a smoothing treatment", 720, 900), video: v("clip-smoothing") },
-  { id: "bride-lilac", type: "image", category: "bridal", title: "Nikkah look", image: image(g("bride-lilac"), "Bride in lilac with soft pink makeup, a diamond necklace and long waves", 800, 1000) },
-  { id: "bun-side", type: "image", category: "hairstyling", title: "Voluminous side bun", image: image(g("bun-side"), "Side view of a voluminous textured bun with face-framing curls", 800, 1000) },
-  { id: "clip-hair-colour", type: "video", category: "hair-colour", title: "Blue and purple colour (clip)", image: image(g("clip-hair-colour"), "Long hair coloured in blue, purple and teal tones", 720, 900), video: v("clip-hair-colour") },
-  { id: "party-lilac", type: "image", category: "party", title: "Evening makeup", image: image(g("party-lilac"), "Client in a lilac outfit with smoky eye makeup and soft curls", 800, 1000) },
-  { id: "clip-highlights", type: "video", category: "hair-colour", title: "Ash highlights (clip)", image: image(g("clip-highlights"), "Long straight hair with ash-blonde highlights", 720, 900), video: v("clip-highlights") },
-  { id: "curls-back", type: "image", category: "hairstyling", title: "Long glam curls", image: image(g("curls-back"), "Back view of a long half-up ponytail with glossy curls", 800, 1000) },
-  { id: "clip-bun-styling", type: "video", category: "hairstyling", title: "Bun styling (clip)", image: image(g("clip-bun-styling"), "Client with a styled bun and gold hair ornament", 720, 900), video: v("clip-bun-styling") },
+  { id: "bride-red", type: "image", category: "bridal", title: "Barat bride", image: image(g("bride-red"), "Bride in red with bold eye makeup, a gold and ruby nath, matha patti and heavy jewellery", 640, 800) },
+  { id: "party-emerald", type: "image", category: "party", title: "Soft glam party look", image: image(g("party-emerald"), "Client with soft pink glam makeup, long side-swept curls and an emerald and diamond necklace", 640, 800) },
+  { id: "highlights", type: "image", category: "hair", title: "Highlights", image: image(g("highlights"), "Long brown hair with soft caramel highlights and loose waves", 900, 1125) },
+  { id: "bridal-in-progress", type: "image", category: "bridal", title: "Bridal makeup by Saba Kashif", image: image(g("bridal-in-progress"), "Saba Kashif finishing a bride's makeup in the studio", 640, 800) },
+  { id: "henna", type: "image", category: "mehndi", title: "Eid mehndi", image: image(g("henna"), "Hand with a delicate floral and butterfly henna design and Eid Mubarak written in Urdu", 900, 1125) },
+  { id: "hair-sleek", type: "image", category: "hair", title: "Sleek straight finish", image: image(g("hair-sleek"), "Long, sleek, straight hair seen from behind", 640, 800) },
+  { id: "studio", type: "image", category: "salon", title: "Inside the studio", image: image(g("studio"), "Salon styling stations with black chairs and a red tufted feature wall", 900, 1125) },
+  { id: "storefront-night", type: "image", category: "salon", title: "Our building at night", image: image(g("storefront-night"), "The salon building lit with fairy lights at night, above K&N's", 900, 1125) },
+  { id: "storefront", type: "image", category: "salon", title: "Find us above K&N's", image: image(g("storefront"), "Layal Lash signboard on the first floor above K&N's on Main Double Road, Soan Gardens", 1280, 720) },
 ];
 
-const beforeAfter: BeforeAfterPair[] = [
-  { id: "ba-bridal", title: "Bridal makeover", description: "Full bridal makeup, jewellery setting and dupatta draping, from a bare face to the finished nikkah look.", before: image("/images/before-after/bridal-before.jpg", "Before: the bride with no makeup, wearing a white dupatta", 800, 1000), after: image("/images/before-after/bridal-after.jpg", "After: the same bride with full bridal makeup, a pearl forehead piece and jewellery", 800, 1000) },
-  { id: "ba-smoothing", title: "Hair smoothing", description: "Frizzy, wavy hair smoothed into sleek, straight, glossy lengths.", before: image("/images/before-after/smoothing-before.jpg", "Before: long frizzy, wavy hair seen from behind", 800, 1000), after: image("/images/before-after/smoothing-after.jpg", "After: the same hair smooth, straight and glossy", 800, 1000) },
-];
+// Add same-angle before/after photo pairs here; the sections stay hidden while this is empty.
+const beforeAfter: BeforeAfterPair[] = [];
 
 // ---------------------------------------------------------------------------
 // Animated media (clips). Set enabled:false to hide, or add video paths.
@@ -349,13 +374,13 @@ const clips: MediaClip[] = [
   }),
   {
     ...clip({
-      id: "home-experience", title: "The salon experience", description: "Close-up of finished bridal makeup and jewellery setting.",
+      id: "home-experience", title: "The salon experience", description: "Our styling studio in Soan Gardens.",
       page: "home", section: "experience", decorative: false, briefKind: "section",
       subject: "A facial or hair treatment shown in calm, close detail",
-      poster: image("/images/home/bridal-detail.jpg", "Close-up of a bride with bronze eye makeup, long lashes and a pearl and gemstone matha patti", 1280, 960),
-      alt: "Close-up of a bride with bronze eye makeup, long lashes and a pearl and gemstone matha patti",
+      poster: image("/images/layal/studio-wide.jpg", "Layal Lash studio with styling chairs, mirrors and a red tufted feature wall", 1280, 960),
+      alt: "Layal Lash studio with styling chairs, mirrors and a red tufted feature wall",
     }),
-    // Client photo, not a clip: shown as a still without the placeholder label.
+    // Salon photo, not a clip: shown as a still without the placeholder label.
     placeholder: false,
   },
   {
@@ -380,9 +405,10 @@ const clips: MediaClip[] = [
       id: "services-hair-break", title: "Hair styling clip", description: "Shown between hair and makeup services.",
       page: "services", section: "break-hair", decorative: false, briefKind: "section",
       subject: "Hair styling: brushing, curling or a finished blow-dry",
-      poster: p("hair-styling", "Colourist applying hair colour with a brush"),
-      alt: "Clip of a colourist applying hair colour",
+      poster: image("/images/layal/highlights-16x9.jpg", "Long brown hair with soft caramel highlights and loose waves", 1280, 720),
+      alt: "Long brown hair with soft caramel highlights and loose waves",
     }),
+    placeholder: false,
     afterCategoryId: "hair-treatments",
   },
   {
@@ -402,9 +428,10 @@ const clips: MediaClip[] = [
       id: "services-spa-break", title: "Skincare and spa clip", description: "Shown after skincare services.",
       page: "services", section: "break-spa", decorative: false, briefKind: "section",
       subject: "Skincare or spa treatment with warm towels and gentle hand movements",
-      poster: p("skincare-spa", "Hands giving a relaxing facial massage in warm light"),
-      alt: "Clip of a relaxing skincare and spa treatment",
+      poster: image("/images/layal/henna-16x9.jpg", "Hand with a delicate floral and butterfly henna design", 1080, 608),
+      alt: "Hand with a delicate floral and butterfly henna design",
     }),
+    placeholder: false,
     afterCategoryId: "facials-skincare",
   },
   clip({
@@ -413,13 +440,16 @@ const clips: MediaClip[] = [
     subject: "Slow pans across styling stations and finished looks",
     poster: p("gallery-intro", ""), alt: "",
   }),
-  clip({
+  {
+    ...clip({
     id: "about-environment", title: "Inside the salon", description: "A short walk through the salon space.",
     page: "about", section: "environment", decorative: false, briefKind: "section",
     subject: "Slow pan of the reception, styling area and treatment room (no people's faces without consent)",
-    poster: p("salon-environment", "Bright salon with styling chairs and mirrors"),
-    alt: "Short clip walking through the salon interior",
-  }),
+    poster: image("/images/layal/studio-16x9.jpg", "Layal Lash styling stations with black chairs and a red tufted feature wall", 1280, 720),
+    alt: "Layal Lash styling stations with black chairs and a red tufted feature wall",
+    }),
+    placeholder: false,
+  },
   clip({
     id: "contact-intro", title: "Booking introduction", description: "Decorative loop behind the contact heading.",
     page: "contact", section: "intro", decorative: true, briefKind: "hero",
@@ -459,14 +489,14 @@ export const salon = {
   name,
   city,
   /** `image` (square) replaces the initials badge in the header when set. */
-  logo: { initials: "RS", image: "/images/brand/roop-mark.jpg" as string | undefined },
-  tagline: "Bridal makeup, hair and skincare",
-  shortDescription: `A welcoming beauty salon in ${city} for hair, makeup, skincare and nails.`,
-  description: `${name} is a beauty salon and institute in D-Type Colony, ${city}. We specialise in beauty, from bridal makeup to hair transformations and skincare, along with nail care, waxing and relaxing spa treatments.`,
-  aboutIntro: `At ${name}, every appointment begins with a conversation. We want you to leave feeling refreshed, looked after and like yourself. [Replace with the salon's real story.]`,
+  logo: { initials: "LL", image: undefined as string | undefined },
+  tagline: "Makeup studio, salon & academy",
+  shortDescription: `A makeup studio, salon and beauty academy in Soan Gardens, ${city}, open 7 days a week.`,
+  description: `${name} is a makeup studio, salon and beauty academy in Soan Gardens, ${city}, led by makeup artist and educator Saba Kashif. We offer bridal and party makeup, hair colour and treatments, Hydrafacials, BB Glow, PRP, lash extensions, nails and waxing, plus makeup and lash courses.`,
+  aboutIntro: `At ${name}, every appointment begins with a conversation. Saba Kashif and her team take their time with each step, so you leave feeling refreshed, looked after and like yourself.`,
   aboutImages: {
-    story: image("/images/about/salon-story.jpg", "Stylist working with a client in a bright hair salon", 1000, 1250),
-    interior: image("/images/about/salon-interior.jpg", "Salon station with a mirror, shelves and styling products", 1200, 900),
+    story: image("/images/layal/bridal-in-progress.jpg", "Saba Kashif finishing a bride's makeup in the studio", 640, 800),
+    interior: image("/images/layal/studio-wide.jpg", "Layal Lash studio with styling chairs, mirrors and a red tufted feature wall", 1280, 960),
   },
   /** Public site URL. Set NEXT_PUBLIC_SITE_URL in the environment for production. */
   siteUrl: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example-salon.com").replace(/\/$/, ""),
@@ -482,14 +512,14 @@ export const salon = {
     highlights: ["Consultation with every service", "Clear prices", "Book by WhatsApp"],
     /** Collage beside the headline (desktop). The first image is the large one. */
     images: [
-      image("/images/home/mehndi-portrait.jpg", "Mehndi bride in an orange mirror-work outfit with a pearl matha patti and soft glam makeup", 900, 1125),
-      image("/images/home/barat-portrait.jpg", "Barat bride in a deep red embroidered outfit with emerald jewellery and a bold red lip", 900, 1125),
+      image("/images/layal/bride-red.jpg", "Bride in red with bold eye makeup, a gold and ruby nath, matha patti and heavy jewellery", 640, 800),
+      image("/images/layal/party-emerald.jpg", "Client with soft pink glam makeup, long curls and an emerald and diamond necklace", 640, 800),
     ],
   },
   contact,
   hours,
   social,
-  bookingTimeSlots: ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"],
+  bookingTimeSlots: ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"],
   categories,
   services,
   offers,
@@ -507,11 +537,11 @@ export const salon = {
   beforeAfter,
   /** Home page bridal lookbook. The first image is the large feature. */
   lookbook: [
-    { title: "Mehndi twirl", image: image("/images/home/mehndi-twirl.jpg", "Mehndi bride twirling in a full orange and gold lehenga on a lawn", 900, 1125) },
-    { title: "Mehndi day", image: image("/images/home/mehndi-field.jpg", "Mehndi bride in an orange and gold lehenga with a flowing dupatta, smiling on a lawn", 900, 1125) },
-    { title: "Barat day", image: image("/images/home/couple-portrait.jpg", "Bride in red and groom in a black sherwani and turban smiling at each other", 900, 1125) },
-    { title: "Mehndi glow", image: image("/images/home/mehndi-side.jpg", "Mehndi bride in orange looking over her shoulder, hands resting on her collar", 900, 1125) },
-    { title: "The first look", image: image("/images/home/couple-walk.jpg", "Bride in a flowing red lehenga walking ahead of the groom in a garden", 900, 1125) },
+    { title: "Bridal makeup by Saba Kashif", image: image("/images/layal/bridal-in-progress.jpg", "Saba Kashif finishing a bride's makeup in the studio", 640, 800) },
+    { title: "Highlights", image: image("/images/layal/highlights.jpg", "Long brown hair with soft caramel highlights and loose waves", 900, 1125) },
+    { title: "Eid mehndi", image: image("/images/layal/henna.jpg", "Hand with a delicate floral and butterfly henna design", 900, 1125) },
+    { title: "Sleek finish", image: image("/images/layal/hair-sleek.jpg", "Long, sleek, straight hair seen from behind", 640, 800) },
+    { title: "Our studio", image: image("/images/layal/studio.jpg", "Salon styling stations with black chairs and a red tufted feature wall", 900, 1125) },
   ],
   clips,
   seo,

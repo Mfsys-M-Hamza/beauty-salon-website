@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/utils";
 
-/** Editorial mosaic of bridal client photos: one tall feature image and four smaller ones. */
+/** Editorial mosaic of client work and salon photos: one tall feature image and four smaller ones. */
 export function BridalLookbook() {
   const items = salon.lookbook;
   if (items.length === 0) return null;
@@ -16,9 +16,9 @@ export function BridalLookbook() {
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
             id="lookbook-title"
-            eyebrow="Bridal lookbook"
-            title="Brides we have dressed for their big day"
-            text="Mehndi, barat and walima looks, with makeup, hair, jewellery setting and dupatta draping done by our team."
+            eyebrow="From our studio"
+            title="Recent work at Layal Lash"
+            text="Bridal makeup, hair colour, mehndi and a look inside the studio in Soan Gardens."
             align="left"
             onDark
           />
